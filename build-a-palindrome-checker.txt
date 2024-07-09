@@ -1,0 +1,53 @@
+** start of undefined **
+
+<!DOCTYPE html>
+<header>
+</header>
+<body>
+  <input id="text-input"></input>
+  <button id="check-btn"onclick>butao</button>
+  <p id="result"></p>
+ <script src="script.js"></script>
+</body>
+
+</html>
+
+** end of undefined **
+
+** start of undefined **
+
+
+
+** end of undefined **
+
+** start of undefined **
+
+const inputText =document.getElementById('text-input');
+
+const button =document.getElementById('check-btn');
+
+const result=document.getElementById('result');
+
+button.addEventListener('click',()=>{
+  const text=inputText.value.trim();
+
+  if(text.length ===0){
+    alert("Please input a value")
+    return;
+  }
+  const cleantext =text.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+
+  const isPalindrome = cleantext ===cleantext.split("").reverse("").join("");
+
+const message =isPalindrome  
+? `<span>${text} is a palindrome</span>` 
+: `<span>${text} is not a palindrome</span>`;
+result.innerHTML =message;
+result.classList.remove("error","sucess");
+setTimeout(()=>{
+  result.classList.add(isPalindrome ?"sucess":"error");
+},10)
+});
+
+** end of undefined **
+
